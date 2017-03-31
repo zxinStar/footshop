@@ -1,0 +1,80 @@
+@charset "utf-8";
+a {
+  color: #333;
+  text-decoration: none;
+}
+.ui-body-c .ui-link {
+  color: #666;
+}
+main .mainCont{
+  display: flex;
+}
+main.ui-content {
+  padding: 0;
+}
+main section.conLeft {
+  flex: 1;
+  background-color: #fff;
+}
+main section.conLeft ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+main section.conLeft ul li a {
+  padding: 0 6px;
+  display: block;
+  line-height: 35px;
+}
+main section.conLeft ul li:not(:last-child) a {
+  border-bottom: 1px solid #ddd;
+}
+main section.conRight {
+  flex: 3;
+  border-left: 1px solid #ddd;
+  overflow: auto;
+}
+main section.conRight figure {
+  display: flex;
+  margin: 0;
+  padding: 6px;
+}
+main section.conRight figure img {
+  width: 80px;
+  height: 80px;
+  margin-right: 6px;
+  border-radius: 4px;
+}
+main section.conRight figure p {
+  color: #666666;
+}
+main section.conRight figure figcaption {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: bold;
+}
+main section.conRight figure figcaption p {
+  margin: 0;
+}
+main section.conRight figure figcaption div {
+  display: flex;
+  justify-content: space-between;
+  line-height: 20px;
+}
+main section.conRight figure figcaption div price {
+  color: #cf0000;
+}
+main section.conRight figure:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+#exitSearch{
+  border:1px solid #999;
+  text-align:center;
+  background-color:#fff;
+  margin:6px;
+  padding:6px;
+  border-radius:6px;
+}

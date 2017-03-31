@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+#myOrder{
+	.cartBox{
+		margin:0 -15px;
+		background:#fff;
+		&:nth-child(1){
+			margin-top:-15px;
+		}
+		.orderListTop{
+			display:flex;
+			margin:0;
+			padding:6px;
+			span{
+				flex:1;
+				text-align:right;
+			}
+		}
+		.orderListBot{
+			display:flex;
+			padding:6px;
+			border-bottom:1px dashed #999;
+			aside{
+				flex:1;
+				white-space:nowrap;
+				overflow:hidden;
+				text-overflow:ellipsis;
+			}
+			totalPrice{
+				width:100px;
+				text-align:right;
+			}
+		}
+	}
+}

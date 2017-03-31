@@ -1,0 +1,41 @@
+@charset "utf-8";
+#myOrder .cartBox {
+  padding:0;
+  margin: 0 -15px;
+  background: #fff;
+}
+#myOrder .cartBox:nth-child(1) {
+  margin-top: -15px;
+}
+#myOrder .cartBox .orderListTop {
+  display: flex;
+  margin: 0;
+  padding: 6px 6px 0px 6px;
+}
+#myOrder .cartBox .orderListTop span {
+  flex: 1;
+  text-align: right;
+}
+#myOrder .cartBox .orderListBot {
+  clear:both;
+  display: flex;
+  padding: 6px;
+  margin-bottom:10px;
+}
+#myOrder .cartBox .orderListBot aside {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#myOrder .cartBox .orderListBot totalPrice {
+  width: 100px;
+  text-align: right;
+}
+
+#myOrder .cartBox li{clear:both;}
+#myOrder .cartBox li img{float:left;}
+#myOrder .cartBox li h2{display:inline-block;margin:.8rem 0;}
+#myOrder .cartBox li p{margin:0;}
+#myOrder .cartBox li p label{margin-right:.2rem;}
+#myOrder .cartBox li p .num{display:inline-block;margin:6px;}

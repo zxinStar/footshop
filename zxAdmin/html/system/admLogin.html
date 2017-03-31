@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/admlogin.css">
+    <title>鑫鑫西餐订餐管理系统-登录</title>
+</head>
+<body>
+    <figure>
+        <img src="../../img/adm_loginBg2.jpg" alt="智慧餐饮-背景">
+        <img src="../../img/adm_loginBg3.jpg" alt="智慧餐饮-背景">
+        <img src="../../img/adm_loginBg4.jpg" alt="智慧餐饮-背景">
+    </figure>
+    <main>
+        <h2>订餐管理系统-后台登录入口</h2>
+        <form>
+            <input type="text" name="admName" required pattern="\w{6,20}"  placeholder="请输入登录账户zxadmin"><span>X</span>
+            <input type="password" name="admPw" required pattern="\w{6,30}" placeholder="请输入登录密码zx123456"><span>X</span>
+            <input type="text" name="admCode" required placeholder="请输入验证码"><img id="vCode" src="../../data/vCode.php" alt="验证码">
+            <small>看不清，换一张?</small>
+            <button>登录</button>
+        </form>
+        <!--<div><img src='img/progress.gif'></div>-->
+    </main>
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="./js/admlogin.js"></script>
+</body>
+</html>

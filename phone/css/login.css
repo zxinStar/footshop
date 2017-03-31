@@ -1,0 +1,17 @@
+@charset "utf-8";
+#loginForm,
+#regForm {
+  margin-top: -0.8em;
+}
+#loginForm label,
+#regForm label {
+  margin: 6px 0;
+}
+#loginForm a,
+#regForm a {
+  font-size: 0.8rem;
+  display: block;
+  text-align: right;
+  color: #999;
+  text-decoration: none;
+}
