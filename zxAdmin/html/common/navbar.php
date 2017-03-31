@@ -51,7 +51,7 @@
 
 					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 						<li>
-							<a href="#">
+							<a href="../system/admIndex.php">
 								<i class="ace-icon fa fa-cog"></i>
 								修改个人信息
 							</a>
@@ -77,24 +77,21 @@
 </div>
 <script src="../../assets/js/jquery.min.js"></script>
 <script>
-$.get('../system/data/isKey.php',{flag:1},function(data){
-	alert(2);
-	console.log(data);
-    if (data){
-        $('.userName').text(data)
-    }else {
-        window.location.href='../system/admlogin.html';
-        window.close();
-    }
-},'json')
 //注销
-$('#exit').on('ckick',function(e){
-	alert(1);
-    e.preventDefault();
-    $.get('data/isKey.php',{flag:2},function(data){
-        if (data){
-            location.reload()//刷新页面
-        }
-    },'text')
+$('#exit').click(function(e){
+	$.get('../system/data/isKey.php',{flag:2},function(data){
+	    if (data){
+	        window.location.href='../system/admlogin.html';//刷新页面
+	    }
+	},'text')
 })
+//判断是否登录
+$.get('../system/data/isKey.php',{flag:1},function(data){
+	if (data){
+	    $('.userName').text(data)
+	}else {
+	    window.location.href='../system/admlogin.html';
+	    window.close();
+	}
+},'text')
 </script>

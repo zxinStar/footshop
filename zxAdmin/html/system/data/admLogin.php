@@ -8,7 +8,7 @@ if(strtolower($vCode)==$_SESSION['vCode']){
     //连接数据库
     $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
     $link->query("set names utf8");
-    $result=$link->query("select admName from zx_adminfos where admName='$admName' and admPw='$admPw'");
+    $result=$link->query("select admName from zx_adminfos where admName='$admName' and admPw=md5('$admPw')");
     $row=$result->fetch();
     if($row){
         $_SESSION['key']= $row['admName'];
