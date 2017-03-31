@@ -1,10 +1,11 @@
 <?php
-$eatName=trim($_POST['eatName']);
-$eatTel=trim($_POST['eatTel']);
-$eatNum=trim($_POST['eatNum']);
-$eatTime=trim($_POST['eatTime']);
-$memo=trim($_POST['memo']);
-$userId=trim($_POST['userId']);
+include("./common.php");
+$eatName=htmlspecialchars($_POST['eatName']);
+$eatTel=htmlspecialchars($_POST['eatTel']);
+$eatNum=htmlspecialchars($_POST['eatNum']);
+$eatTime=htmlspecialchars($_POST['eatTime']);
+$memo=htmlspecialchars($_POST['memo']);
+$userId=htmlspecialchars($_POST['userId']);
 
 $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
 $link->query("set names utf8");

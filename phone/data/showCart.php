@@ -1,4 +1,5 @@
 <?php
+include("./common.php");
 //开启session
 session_start();
 
@@ -7,11 +8,11 @@ if(!isset($_SESSION['goods'])){
   $_SESSION['goods'] = array(); //session销毁之后变为空   
 }  
 
-$flag = trim($_POST['flag']);
-$footName = trim($_POST['footName']);
-$footPrice = trim($_POST['footPrice']);
-$footId = trim($_POST['footId']);
-$path = trim($_POST['path']);
+$flag = htmlspecialchars($_POST['flag']);
+$footName = htmlspecialchars($_POST['footName']);
+$footPrice = htmlspecialchars($_POST['footPrice']);
+$footId = htmlspecialchars($_POST['footId']);
+$path = htmlspecialchars($_POST['path']);
 $goods = $_SESSION['goods'];
 if($flag==1){
     if ($footName == $goods[$footName]['footName']) {//买过的话，则总价格增加，相应商品数量增加

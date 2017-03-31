@@ -1,12 +1,13 @@
 <?php
-$flag=trim($_POST['flag']);
-$userId=trim($_POST['userId']);
+include("./common.php");
+$flag=htmlspecialchars($_POST['flag']);
+$userId=htmlspecialchars($_POST['userId']);
 
 $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
 $link->query("set names utf8");
 
 if($flag == 1){
-	$userTel=trim($_POST['userTel']);
+	$userTel=htmlspecialchars($_POST['userTel']);
 	$check=$link->query("select userTel from zx_userinfos where userTel='$userTel'");
 	$row=$check->fetch();
 	if($row){
@@ -20,8 +21,8 @@ if($flag == 1){
 	    }
 	}
 }else{
-	$oldpw=trim($_POST['oldpw']);
-	$loginpw=trim($_POST['loginpw']);
+	$oldpw=htmlspecialchars($_POST['oldpw']);
+	$loginpw=htmlspecialchars($_POST['loginpw']);
 	$old=$link->query("select loginpw from zx_userinfos where userId='$userId' and loginpw=md5('$oldpw')");
 	$r=$old->fetch();
 	if($r){

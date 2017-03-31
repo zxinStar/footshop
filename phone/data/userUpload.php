@@ -1,12 +1,13 @@
 <?php
 header("Content-Type:text/html;charset=UTF-8");
-$vCode=trim($_POST['vcode']);
+include("./common.php");
+$vCode=htmlspecialchars($_POST['vcode']);
 session_start();
 
 if ($vCode==$_SESSION['vCode']){
     //获取value值
-    $loginName=trim($_POST['fname']);
-    $userTel=trim($_POST['tel']);
+    $loginName=htmlspecialchars($_POST['fname']);
+    $userTel=htmlspecialchars($_POST['tel']);
 
     //连接数据库
     $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
@@ -21,7 +22,7 @@ if ($vCode==$_SESSION['vCode']){
     }else if($rowTel){
         $arr['flag']=5;
     }else {
-        $loginPw=trim($_POST['password']);
+        $loginPw=htmlspecialchars($_POST['password']);
         $result=$link->query("INSERT INTO zx_userinfos(loginName,userTel,loginPw) VALUES('$loginName','$userTel',md5('$loginPw'))");
         if($result){
             $arr['flag']=2;

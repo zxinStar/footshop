@@ -1,11 +1,12 @@
 <?php
 session_start();
-$footName=trim($_POST['footName']);
-$orderNum=trim($_POST['orderNum']);
-$footPrice=trim($_POST['footPrice']);
-$footId=trim($_POST['footId']);
-$userId=trim($_POST['userId']);
-$orderId=trim($_POST['orderId']);
+include("./common.php");
+$footName=htmlspecialchars($_POST['footName']);
+$orderNum=htmlspecialchars($_POST['orderNum']);
+$footPrice=htmlspecialchars($_POST['footPrice']);
+$footId=htmlspecialchars($_POST['footId']);
+$userId=htmlspecialchars($_POST['userId']);
+$orderId=htmlspecialchars($_POST['orderId']);
 
 $conn = mysql_connect('localhost','root','') or die ("数据连接错误!!!");
 mysql_select_db('zx__ordsystem',$conn);

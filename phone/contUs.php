@@ -6,7 +6,7 @@
     <?php include("common/header.php"); ?>
 
     <main data-role="content">
-        <form id="contForm" data-ajax="false">
+        <form id="contForm" data-ajax="false" method="post">
             <div data-role="fieldcontain">
                 <label for="fname">姓名：</label>
                 <input type="text" name="fname" id="fname" placeholder="请输入姓名">
@@ -37,6 +37,18 @@ $(function(){
                         break;
                     case 2:
                         alert("反馈失败，请重新提交!");
+                        break;
+                    case 3:
+                        alert("留言信息中包含敏感词，请重新输入！");
+                        break;
+                    case 4:
+                        alert("请不要输入无意义的重复内容！");
+                        break;
+                    case 5:
+                        alert("请不要输入全是数字的文字!");
+                        break;
+                    case 6:
+                        alert("输入的留言文字过短！");
                         break;
                 }
             }, 'json');

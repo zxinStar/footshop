@@ -1,11 +1,12 @@
 <?php
+include("./common.php");
 $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
 $link->query("set names utf8");
 
 
-$classify=$_POST['classify'];
-$footPrice=$_POST['footPrice'];
-$footName=$_POST['footName'];
+$classify=htmlspecialchars($_POST['classify']);
+$footPrice=htmlspecialchars($_POST['footPrice']);
+$footName=htmlspecialchars($_POST['footName']);
 
 $result=$link->query("select footName,classify,path,footNum,footPrice,footId from zx_foots where footName like '%" .$footName. "%' and classify like '%" .$classify. "%' and footPrice like '%" .$footPrice. "%' ");
 

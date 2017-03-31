@@ -1,9 +1,10 @@
 <?php
+include("./common.php");
 session_start();
 $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
 $link->query("set names utf8");
 
-$userId=trim($_POST['userId']);
+$userId=include("./common.php");($_POST['userId']);
 $result=$link->query("select orderId,eatTime,memo,tag from zx_orders where userId='$userId'");
 $arr['flag']=1;
 if($result){

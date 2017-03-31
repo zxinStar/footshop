@@ -1,7 +1,8 @@
 <?php
-$num=trim($_POST['num']);
-$userId=trim($_POST['userId']);
-$footId=trim($_POST['footId']);
+include("./common.php");
+$num=htmlspecialchars($_POST['num']);
+$userId=htmlspecialchars($_POST['userId']);
+$footId=htmlspecialchars($_POST['footId']);
 
 $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
 $link->query("set names utf8");
@@ -33,7 +34,7 @@ if($num == 1 && $row){
     }
 }else{
 	if($row){
-		$orderNum=trim($_POST['orderNum']);
+		$orderNum=htmlspecialchars($_POST['orderNum']);
     	$result=$link->exec("UPDATE zx_carts SET orderNum=orderNum+'$orderNum' WHERE footId='$footId' and userId='$userId'");
 	    if($result){
 	        $arr['flag']=1;//购物车某种菜品数量修改成功
