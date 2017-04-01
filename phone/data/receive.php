@@ -4,7 +4,9 @@
     $loginPw=htmlspecialchars($_POST['logPw']);
     $link=new PDO("mysql:host=localhost;dbname=zx__ordsystem","root","");
     $link->query("set names utf8");
-    $result=$link->query("select userId,loginName,userTel from zx_userinfos where loginName='$loginName' and loginPw=md5('$loginPw')");
+    $result=$link->prepare("select userId,loginName,userTel from zx_userinfos where loginName=:loginName and loginPw=md5(:loginPw)");
+    $result->execute(array(':loginName' =>$loginName , ':loginPw' =>$loginPw));
+
     $row=$result->fetch();
 
     if($row){

@@ -23,19 +23,19 @@ k<!DOCTYPE html>
                         if(data){
                             var str = '';
                             $.each(data.message, function () {
-                                if(this.tag == 0){
-                                    var tag = '';
-                                }else{
-                                    var tag = '取消订单';
-                                }
                                 if(this.memo == ''){
                                     this.memo='无';
                                 }
                                 str +='<ul data-role="listview" class="cartBox">'
                                     + '<p class="orderListTop">'
-                                    +'<time>'+this.eatTime+'</time>'
-                                    +'<span>状态：'+tag+'</span>'
-                                    +'</p>';
+                                    +'<time>'+this.eatTime+'</time>';
+                                if(this.tag == 0){
+                                    var tag = '';
+                                }else{
+                                    var tag = '订单已取消';
+                                    str += '<span>状态：'+tag+'</span>';
+                                }
+                                str +='</p>';
                                 $.each(this.foot,function(){
                                     str += '<li>'
                                         +' <img src="../zxAdmin/files/Z-0G5R72.jpg" style="width:80px;height:80px;object-fit:cover;margin:10px 6px">'

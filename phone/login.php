@@ -47,7 +47,7 @@
                 <label for="vcode">验证码：</label>
                 <p style="display:flex;justify-content:space-around;margin: 0">
                     <input type="text" name="vcode" id="vcode" placeholder="请输入验证码..">
-                    <img onclick="getVCode()" id="code" src="../admin/data/vCode.php" alt="vcode">
+                    <img onclick="getVCode()" id="code" src="./data/vCode.php" alt="vcode">
                 </p>
             </div>
             <button>注册</button>
@@ -58,7 +58,7 @@
 </div>
 <script>
     function getVCode(){
-        $('#code').attr("src","../admin/data/vCode.php");
+        $('#code').attr("src","./data/vCode.php");
     }
     $.get('data/isKey.php',{flag:1},function(data){
         if (data){

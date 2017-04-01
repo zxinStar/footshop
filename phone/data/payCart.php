@@ -22,7 +22,7 @@ $res2 = mysql_query($sql2);
 $res3 = mysql_query($sql3);  
 if($res1 && $res2 && $res3){  
 	mysql_query("COMMIT");  
-	//unset($goods[$footName]);
+	unset($goods[$footName]);
 	$arr['flag']=1;//反馈成功
 }else{  
  	mysql_query("ROLLBACK");  

@@ -56,7 +56,7 @@
                         <label for="memo">备注：</label>
                         <textarea name="memo" id="memo" placeholder="请备注您的口味！"></textarea>  
                     </div>
-                    <button class="payBtn">支付宝付款</button>
+                    <button class="payBtn">立即付款</button>
             </form>
             <!-- <p>请选择支付方式：</p> -->
             <!-- <button class="payBtn">支付宝付款</button> -->
@@ -128,7 +128,7 @@
                                                     $.post('data/payCart.php', param2, function (data) {
                                                         switch (data.flag) {
                                                             case 2:
-                                                                alert("支付失败，请检查您的网络!");
+                                                                //alert("支付失败，请检查您的网络!");
                                                                 return false;
                                                             }
                                                     }, 'json');

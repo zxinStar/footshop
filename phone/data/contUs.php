@@ -16,14 +16,15 @@ if($_POST){
 			 	exit;
 			}
 		}
-		if(preg_match("/([\x{4e00}-\x{9fa5}].+)\\1{4,}/u",$info)){//同字重复５次以上
+		if(preg_match("/([\x{4e00}-\x{9fa5}].+)\\1{2,}/u",$info)){//同字重复3次以上
 			$arr['flag']=4;
 		}else if(preg_match("/^[0-9a-zA-Z]*$/",$info)){//全数字，全英文或全数字英文混合的
 			$arr['flag']=5;
 		}else if(strlen($info)<10){//输入字符长度过短
 			$arr['flag']=6;
 		}else{
-			$result=$link->query("INSERT INTO zx_messages(userName,userEmail,feedback) VALUES ('$fname','$email','$info')");
+			$result=$link->prepare("INSERT INTO zx_messages(userName,userEmail,feedback) VALUES (:fname,:email,:info)");
+			$result->execute(array(':fname' =>$fname , ':email' =>$email ,':info' =>$info ));
 			if($result){
 			    $arr['flag']=1;//反馈成功
 			}else{

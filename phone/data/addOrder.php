@@ -19,18 +19,22 @@ function randName($len){//随机订单编号产生
 }
 $orderNo=randName(21);
 
-$resultNo=$link->query("select orderNo from zx_orders where orderNo='$orderNo'");
+$resultNo=$link->prepare("select orderNo from zx_orders where orderNo=:orderNo");
+$resultNo->execute(array(':orderNo' =>$orderNo));
 $resultNo=$resultNo->fetch();
 if($resultNo){
 	$orderNo=randName(21);
 }else{
-	$result=$link->query("INSERT INTO zx_orders (eatName,eatTel,eatNum,memo,eatTime,orderNo,userId) VALUES ('$eatName','$eatTel','$eatNum','$memo','$eatTime','$orderNo','$userId')");	if($result){
-		$res=$link->query("select orderId from zx_orders where orderNo='$orderNo'");
-	    $arr['flag']=1;//失败
-	    while ($row=$res->fetch()){
+	$result=$link->prepare("INSERT INTO zx_orders (eatName,eatTel,eatNum,memo,eatTime,orderNo,userId) VALUES (:eatName,:eatTel,:eatNum,:memo,:eatTime,:orderNo,:userId)");
+	$result->execute(array(':eatName' =>$eatName , ':eatTel' =>$eatTel ,':eatNum' =>$eatNum, ':memo' =>$memo ,':eatTime' =>$eatTime, ':orderNo' =>$orderNo ,':userId' =>$userId ));	
+	if($result){
+		$res=$link->prepare("select orderId from zx_orders where orderNo=:orderNo");
+		$res->execute(array(':orderNo' =>$orderNo));	
+    	$arr['flag']=1;//失败
+    	while ($row=$res->fetch()){
 	        $arr['message']=$row;//反馈成功
 	        $arr['flag']=3;
-	    }
+    	}
 	}else{
 	    $arr['flag']=2;//反馈失败
 	}
